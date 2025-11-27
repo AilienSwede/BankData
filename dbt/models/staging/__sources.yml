@@ -1,0 +1,169 @@
+version: 2
+
+sources:
+  - name: FDIC
+    description: "Federal Deposit Insurance Corporation (FDIC) data sources."
+    database: FDIC
+    schema: BRANCH
+    tables:
+    - name: STG
+      description: "FDIC Summary of Deposits (SOD) branch-level data, one row per branch per year."
+      columns:
+        - name: YEAR
+          description: "Year of survey (1994 - Current). All SOD surveys are annual as of June 30."
+        - name: CERT
+          description: "The certificate number assigned to an institution for deposit insurance."
+        - name: BRNUM
+          description: "Numerical reference to identify a branch office within one institution"
+        - name: UNINUMBR
+          description: "The unique number associated with a specific physical location of a branch.  This number remains with this location over time, regardless of ownership."
+        - name: NAMEFULL
+          description: "Institution name."
+        - name: ADDRESBR
+          description: "Physical location of the branch"
+        - name: CITYBR
+          description: "Reported city in which the branch is located"
+        - name: CNTYNAMB
+          description: "County name in which the branch is located."
+        - name: STALPBR
+          description: "The state abbreviation of the location in which the branch is physically located"
+        - name: ZIPBR
+          description: "The ZIP code associated with the physical address of the branch."
+        - name: BRCENM
+          description: "Code used to describe the nature of the reported deposits: C - Combined E - Estimated at one location S - Single R - Reported at one location (default)"
+        - name: CONSOLD
+          description: "When BRCENM = C, consolidated, this is the office number (brnum) in which the deposits of the branch are reported."
+        - name: BRSERTYP
+          description: "Code that defines the type of service the branch office provides: B - Full Service, Brick and Mortar - A traditional branch E - Full Service, Cyber S - Full Service, Seasonal - Office closed for a portion of the year. D - Limited Service, Drive-Through Facility - A full service office attached to a Branch location with limited amenities such as accepting deposits and checks. L - Limited Service , Loan Production Office - Offering limited services, typically restricted to approving and closing of loans and may engage in marketing and promotional activities. M - Limited Service, Military Facility - Located on a US military facility with some restrictions Q - Limited Service, Consumer Credit Office - Offers limited services, restricted to the origination and servicing of consumer loans, and credit cards, with no deposit taking power. R - Limited Service, Retails Office - Customer accessible facilities such as supermarkets or community centers which primarily offer limited services such as depositing checks and money, and disbursement of monies via cash or check. U - Limited Service, Mobile/Seasonal Facility O - Limited Service, Other Facility - One or more of the following: messenger, night depository, and point-of-sale facility. Closed facilities still appearing on the institution's structure record have a code of: 0 - Full Service, Brick and Mortar (Closed) 1 - Full Service, Cyber (Closed) 2 - Full Service, Seasonal (Closed) 3 - Limited Service, Administrative Office (Closed) 4 - Limited Service, Military Facility (Closed) 5 - Limited Service, Drive-Through Facility (Closed) 6 - Limited Service, Loan Production Office/Consumer Credit Office (Closed) 7 - Limited Service, Mobile Office (Closed) 8 - Limited Service, Retails Office (Closed) 9 - Limited Service, Other Office"
+        - name: DEPSUMBR
+          description: "Branch office deposits as of June 30"
+        - name: BKMO
+          description: "Main office / branch identifier; Main office = 0; Branch office = 1"
+        - name: CBSA_DIV_NAMB
+          description: "The name that corresponds to a code for a county based Statistical Area (CBSA).  The name of the Combined Metropolitan Area along with the divisional name (ex. Washington-Alexandria-Silver Spring, DC-VA-MD-WV)."
+        - name: CITY2BR
+          description: "Central city based on the reported ZIP code of the branch"
+        - name: CNTRYNAB
+          description: "The country in which the branch is located."
+        - name: CNTYNUMB
+          description: "County FIPS code in which the branch is located"
+        - name: CSABR
+          description: "Code that designates the free standing combination area in which the branch is located."
+        - name: CSANAMBR
+          description: "The name that corresponds to the code that identifies the free standing combination area in which the branch is located."
+        - name: DIVISIONB
+          description: "Code that designates the free standing divisional area in which the branch is located."
+        - name: MSABR
+          description: "Code that designates the free-standing Metropolitan Statistical Area from CBSA in which the branch is located."
+        - name: MSANAMB
+          description: "The name that corresponds to the code that identifies the free-standing Metropolitan Statistical Area from CBSA in which the branch is located."
+        - name: METROBR
+          description: "Metropolitan or Micropolitan Status: M - Metropolitan statistical Area"
+        - name: MICROBR
+          description: "Metropolitan or Micropolitan Status: N - Micropolitan statistical area. (See METROBR above)"
+        - name: NAMEBR
+          description: "Institution name for branch.  If the branch is a subsidiary of another institution, the name will reflect the name of the subsidiary"
+        - name: NECTABR
+          description: "The code that corresponds to the statistical area that encompasses all cities, towns, and other combinations that may be linked around an employment center for purposes geographic delineation."
+        - name: NECNAMB
+          description: "The description associated with the code that corresponds to the statistical area that encompasses all cities, towns, and other combinations that may be linked around an employment center for purposes geographic delineation."
+        - name: PLACENUM
+          description: "The code that references a Census Bureau defined place."
+        - name: SIMS_ACQUIRED_DATE
+          description: "GIS Estimation: Date that the branch was acquired by the current (or last) owner according to FDIC corporate history data."
+        - name: SIMS_ESTABLISHED_DATE
+          description: "GIS Estimation: Date that the branch was established according to FDIC corporate history data."
+        - name: SIMS_LATITUDE
+          description: "Latitude of branch, reported in decimal degrees (North positive), calculated from street address when available, or ZIP Code or city name otherwise, using state-of-the-art software and data."
+        - name: SIMS_LONGITUDE
+          description: "Longitude of branch, reported in decimal degrees (East positive), calculated from street address when available, or ZIP Code or city name otherwise, using state-of-the-art software and data."
+        - name: SIMS_DESCRIPTION
+          description: "Description of simulation in branch locating enhancements."
+        - name: SIMS_PROJECTION
+          description: "Projection string used in simulation"
+        - name: STCNTYBR
+          description: "The state and county FIPS code associated with the location of the branch."
+        - name: STNAMEBR
+          description: "The state name of the location of the branch."
+        - name: STNUMBR
+          description: "The state FIPS code associated with the location of the branch."
+        - name: HCTMULT
+          description: "High holding company type indicator:  If a banking company owns only one financial institution and has no assets other than that institution NO MULTIPLIER is required. NO - no multiplier required YES - multiplier required"
+        - name: RSSDHCR
+          description: "A unique number assigned by the Federal Reserve Board to the top holder of a banking organization"
+        - name: NAMEHCR
+          description: "Full legal name of highest regulatory holder, as obtained from chain of regulatory hierarchy"
+        - name: CITYHCR
+          description: "City of highest regulatory holder, as obtained from chain of regulatory hierarchy"
+        - name: STALPHCR
+          description: "State of highest regulatory holder, as obtained from chain of regulatory hierarchy"
+        - name: RSSDID
+          description: "The RSSD ID issued by the Federal Reserve Board; unique identifier for the financial institution's head office."
+        - name: UNIT
+          description: "Units of a bank holding company as a possible multiplier:  1 - 1 unit i.e., no multiplier 2 - 2 units in structure 3 - 3 units in structure"
+        - name: ADDRESS
+          description: "The physical address of the main office (headquarters) of the institution."
+        - name: CITY
+          description: "The city where the of the headquarters of the institution is located."
+        - name: STALP
+          description: "The state abbreviation of the location in which the headquarters of an institution is physically located"
+        - name: ZIP
+          description: "The ZIP code associated with the physical address of the headquarters of the institution."
+        - name: ASSET
+          description: "Total assets of the institution as of June 30. This is equal to the TOTAL ASSETS reported on Schedule RC Line 12 of the quarterly Report of Condition. Values are in thousands of dollars."
+        - name: BKCLASS
+          description: "An alpha code that indicates major groupings of financial institutions, using combinations of regulator and charter type. N - National Banks SM - State commercial banks that are members of the Federal Reserve SN - Non-Fed member State Banks NM - Non-Fed member State Banks; previous to March 30, 2001 state chartered branches of foreign banks CA - Non-Fed member State Banks; previously special classifications of state commercial banks which have been merged CB -  Non-Fed member State Banks; previously special classifications of state commercial banks which have been merged SA - Savings Associations; previous to June 30, 1987 savings and loans SB - Savings Banks; previous to June 30, 1987 state savings banks"
+        - name: CALL
+          description: "Prior to 2012, OTS institutions filed a quarterly TFR (Thrift Financial Report), not a call report, but data for these institutions (SA, SB, etc) is matched to the Call column. TFR Call filed: 1 - Filed TFR - OTS Regulated Deposit Taker 2 - Filed Call - FDIC Regulated Deposit Taker 3 - Either Filed TFR or Filed Call or Deposits Sourced From Affiliate After 2012, OTS institutions filed the same call report as other institutions - 1 - Filed Call - All Regulated Deposit Takers 2 - Depositors Sourced From Affiliate Call status codes"
+        - name: CHARTER
+          description: "Identifies whether an institution is federally or state chartered, using the following numeric codes: F - Federal charter S - State charter"
+        - name: CHRTAGNN
+          description: "The name of the chartering agency of the institution. FEDERAL - federal chartered institution STATE - state chartered institution."
+        - name: CHRTAGNT
+          description: "The abbreviation of the chartering agency of the institution. FEDERAL - federal chartered institution. STATE - state chartered institution."
+        - name: CLCODE
+          description: "A two-digit numeric code that identifies the major assets specialization or other charactistics used to classify the institution for the uniform bank performance report (UBPR)"
+        - name: CNTRYNA
+          description: "The country in which the headquarters of the institution is located."
+        - name: DENOVO
+          description: "Identifies those institutions that have less than ten years of deposit history (which may be 0)."
+        - name: DEPDOM
+          description: "Total domestic deposits as of June 30 of the SOD year."
+        - name: DEPSUM
+          description: "Total domestic deposits in all SOD offices"
+        - name: DOCKET
+          description: "Office of Thrift Supervision (OTS) docket number:  numeric - OTS regulated non credit union institution NA -  Non thrift institution"
+        - name: ESCROW
+          description: "Escrow includes amounts actually held in escrow as well as tender escrow, escrow deposits in connection with the issuance of capital stock, funds accumulated as the result of payments by borrowers to provide a source of funds to repay indebtedness, and accumulated payments for taxes or insurance. Total balances of escrow funds credited to the liability account for the institution's report of condition as report on SCHEDULE SC of the TFR and is reported as ESCROW BALANCE, TOTAL as of the quarter-end."
+        - name: FDICDBS
+          description: "FDIC defined geographic region for district bank.  Divides region into areas with headquarters cities as follows:   1 - BOSTON 2 - NEW YORK 3 - ATLANTA 4 - JACKSONVILLE 5 - DALLAS 6 - KANSAS CITY 7 - DENVER 8 - SAN FRANCISCO"
+        - name: FDICNAME
+          description: "The standardized name used by the FDIC to identify an institution."
+        - name: FED
+          description: "Federal Reserve district; a nine-number district is used by the Federal Reserve System to categorize all regulated institutions and service offices. (Particle 2 of the RSSDID field.)"
+        - name: FEDNAME
+          description: "The name of the Federal Reserve district that the institution belongs to."
+        - name: INSAGNT1
+          description: "The primary insurer, insurance agent, or insurance status of an institution BIF - Bank Insurance Fund; SAIF - Savings Association Insurance Fund; DIF - if or when BIF and SAIF insurance funds merge into single Deposit Insurance Fund NA  - no primary insurer"
+        - name: INSURED
+          description: "Identifies commercial banks (CB),  savings institutions (SA), and insured branches of foreign banks (FB), which operate under the Code of Federal Regulations which require the maintenance of reserves against certain types of deposit liabilities and which are federally supervised.  All institutions insured by the FDIC and/or the Savings Association Insurance Fund are identified as follows:  CB  -Commercial Bank insured by the FDIC SA  -Savings Institution, insured by the FDIC FB  -Insured Branches of a Foreign Bank NI  -Not Insured"
+        - name: INSBRDD
+          description: "Demand deposits in insured branches located in Puerto Rico and U.S. Territories are detailed on the TFT portion of the OTS regulatory report.  These insured TFT deposits are defined to be INSBRDD.SOD INFERS a value of 0 when no values are provided on the TFT schedule of the TFR."
+        - name: INSBRTS
+          description: "Time and savings deposits in insured branches located in Puerto Rico and U.S. Territories are detailed on the TFT portion of the OTS regulatory report. These insured TFT deposits are defined to be INSBRTS.  SOD INFERS a value of 0 when no values are provided on the TFT schedule of the TFR"
+        - name: OCCDIST
+          description: "A number used to identify the Comptroller of the Currency district in which the institution is located; 01-Northeast, 03 Central, 04 Western and 05 Southern."
+        - name: OCCNAME
+          description: "The name associated with the Comptroller of the Currency district in which the institution is located; 01-Northeast, 03 Central, 04 Western and 05 Southern."
+        - name: REGAGNT
+          description: "The primary regulatory agency of the institution FED   - FEDERAL RESERVE FDIC  - FEDERAL DEPOSIT INSURANCE CORPORATION OCC   - OFFICE OF THE COMPTROLLER OF THE CURRENCY NCUA - NATIONAL CREDIT UNION ASSOCIATION STATE - STATE REGULATED"
+        - name: SPECGRP
+          description: "A mutually exclusive industry classification grouping which indicates the institution's primary asset specialization.  This grouping is based upon the ratios between specific asset or income accounts and total assets or income, as applicable.  "
+        - name: SPECDESC
+          description: "The description of a mutually exclusive industry classification grouping which indicates the institution's primary asset specialization.   1 = REAL ESTATE LENDING - CONSTRUCTION & DEVELOPMENT  2 = REAL ESTATE LENDING - LAND AND AGRICULTURAL  3 = REAL ESTATE LENDING - COMMERCIAL REAL ESTATE  4 = REAL ESTATE LENDING - RESIDENTIAL REAL ESTATE  5 = COMMERCIAL & INDUSTRIAL LENDING  6 = CONSUMER LENDING  7 = OTHER LENDING  8 = ALL OTHER UNDER $1 BILLION  9 = ALL OTHER OVER $1 BILLION"
+        - name: STCNTY
+          description: "The state and county FIPS code associated with the headquarters location of the institution."
+        - name: STNAME
+          description: "The state name of the location of the institution's headquarters."
+        - name: USA
+          description: "A flag that identifies that the institution is headquartered in the United States."
