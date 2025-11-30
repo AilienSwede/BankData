@@ -1,0 +1,14 @@
+BRANCH_SERVICE_TYPE_CODE,BRANCH_SERVICE_TYPE,BRANCH_SERVICE_CATEGORY,BRANCH_SERVICE_SUB_CATEGORY
+11,"Full Service, brick and mortar office", Full Service, brick and mortar office
+12,"Full Service, retail office", Full Service, retail office
+13,"Full Service, cyber office", Full Service, cyber office
+21,"Limited Service, administrative office", Limited Service, administrative office
+22,"Limited Service, military facility", Limited Service, military facility
+23,"Limited Service, drive-through facility", Limited Service, drive-through facility
+24,"Limited Service, loan production office", Limited Service, loan production office
+25,"Limited Service, consumer credit office", Limited Service, consumer credit office
+26,"Limited Service, contractual office", Limited Service, contractual office
+27,"Limited Service, messenger office", Limited Service, messenger office
+28,"Limited Service, retail office", Limited Service, retail office
+29,"Limited Service, mobile/seasonal office", Limited Service, mobile/seasonal office
+30,"Limited Service, trust office", Limited Service, trust office

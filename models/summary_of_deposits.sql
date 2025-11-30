@@ -59,7 +59,7 @@ select
         TRIM(CHARTER)                               AS INSTITUTION_CHARTER_TYPE,
         TRIM(CHRTAGNN)                              AS INSTITUTION_CHARTER_AGENCY,
         TRIM(CHRTAGNT)                              AS INSTITUTION_CHARTER_AGENCY_CODE,
-        TRY_CAST(CLCODE AS INT)                     AS INSITUTION_CATEGORY,
+        TRY_CAST(CLCODE AS INT)                     AS INSITUTION_CATEGORY_CODE,
         TRIM(CNTRYNA)                               AS INSTITUTION_COUNTRY_NAME,
         TRY_CAST(DENOVO AS INT)                     AS INSTITUTION_ORIGINAL_CHARTER_FLAG,
         TRY_CAST(DEPDOM AS INT)                     AS INSTITUTION_DOMESTIC_DEPOSITS_AMOUNT,
