@@ -2,4 +2,4 @@
 
 ## Overview
 
-This repository contains an example dbt project to get you started with dbt on Snowflake. 
+This repository contains a way to analyze the FDIC branch data in Snowflake using DBT for transformations.
