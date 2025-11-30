@@ -18,8 +18,15 @@ clean-targets: [target, dbt_modules]
 
 ## Models
 models:
-  dbt:
+  BankData:
     staging:
       +materialized: view
     marts:
       +materialized: table
+seeds:
+  BankData:
+    +persist_docs:
+      relation: true
+      columns: true
+    +post-hook:
+      - "{{ apply_seed_constraints(this, model) }}"

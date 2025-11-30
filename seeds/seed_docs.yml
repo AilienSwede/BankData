@@ -1,0 +1,68 @@
+version: 2
+
+seeds:
+  - name: BRANCH_SERVICE_TYPE
+    description: "Lookup for the types of services offered at each branch."
+    columns:
+      - name: BRANCH_SERVICE_TYPE_CODE
+        description: "Code that defines the type of service the branch office provides"
+        tests: [not_null, unique]
+      - name: BRANCH_SERVICE_TYPE
+        description: "The type of service offered at the branch."
+        tests: [not_null]
+      - name: BRANCH_SERVICE_CATEGORY
+        description: "The main category of the branch service"
+        tests: [not_null]
+      - name: BRANCH_SERVICE_SUB_CATEGORY
+        description: "The detailed sub-category of the branch service"
+        tests: [not_null]
+
+  - name: INSITUTION_CATEGORY
+    description: "Lookup table for institution categories (e.g., commercial, retail)."
+    columns:
+      - name: INSTITUTION_CATEGORY_CODE
+        description: "Unique code for the institution category."
+        tests: [not_null, unique]
+      - name: INSTITUTION_CATEGORY
+        description: "Human-readable name for the institution category."
+        tests: [not_null]
+
+  - name: INSTITUTION_INSURANCE_TYPE
+    description: "Lookup table for types of insurance coverage associated with institutions."
+    columns:
+      - name: INSTITUTION_INSURANCE_TYPE_CODE
+        description: "Code for the insurance type."
+        tests: [not_null, unique]
+      - name: INSTITUTION_INSURANCE_TYPE
+        description: "Human-readable name or description of the insurance type."
+        tests: [not_null]
+
+  - name: INSTITUTION_PRIMARY_INSURER
+    description: "Lookup for the primary insurer entity associated with an institution."
+    columns:
+      - name: INSTITUTION_PRIMARY_INSURER_CODE
+        description: "Code identifying the primary insurer."
+        tests: [not_null, unique]
+      - name: INSTITUTION_PRIMARY_INSURER
+        description: "Name of the primary insurer."
+        tests: [not_null]
+
+  - name: INSTITUTION_PRIMARY_REGULATOR
+    description: "Lookup for the primary regulatory body overseeing institutions."
+    columns:
+      - name: INSTITUTION_PRIMARY_REGULATOR_CODE
+        description: "Code for the primary regulator."
+        tests: [not_null, unique]
+      - name: INSTITUTION_PRIMARY_REGULATOR
+        description: "Name of the primary regulator."
+        tests: [not_null]
+
+  - name: INSTITUTION_TYPE
+    description: "Lookup table for institution types (bank, credit union, trust company, etc.)."
+    columns:
+      - name: INSTITUTION_TYPE_CODE
+        description: "Code representing the institution type."
+        tests: [not_null, unique]
+      - name: INSTITUTION_TYPE
+        description: "Human-readable name for the institution type."
+        tests: [not_null]
