@@ -1,0 +1,11 @@
+INSTITUTION_PRIMARY_INSURER_CODE,INSTITUTION_PRIMARY_INSURER
+BIF,Bank Insurance Fund
+DIF,Deposit Insurance Fund
+SAIF,Savings Insurance Fund
+STATE,State Insured
+PRIV,Private Insured
+SOVER,Foreign Insured
+OTHER,Other Insured
+NONE,Not Insured
+NCUA,National Credit Union Association Insurance
+NCUA,National Credit Union Association Insurance
