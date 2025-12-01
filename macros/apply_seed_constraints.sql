@@ -28,15 +28,9 @@
   {# for *_CODE columns add a unique (or PK) constraint only if no such constraint exists on the column #}
   {%- if col_name.endswith('_CODE') -%}
     {%- set constraint_name = (this.identifier ~ '_' ~ col_name ~ '_uk') | upper -%}
-    {# Use the provided TABLE_CONSTRAINTS() query to check for an existing UNIQUE constraint #}
-    {%- set check_const_sql = "SELECT 1 FROM " ~ this.database ~ ".INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA = '" ~ this.schema ~ "' AND TABLE_NAME = '" ~ this.identifier ~ "' AND CONSTRAINT_NAME = '" ~ constraint_name ~ "' AND CONSTRAINT_TYPE = 'UNIQUE'" -%}
+    {%- set check_const_sql = "SELECT 1 FROM " ~ this.database ~ ".INFORMATION_SCHEMA.TABLE_CONSTRAINTS WHERE TABLE_SCHEMA = UPPER('" ~ this.schema ~ "') AND TABLE_NAME = UPPER('" ~ this.identifier ~ "') AND CONSTRAINT_NAME = UPPER('" ~ constraint_name ~ "') AND CONSTRAINT_TYPE = 'UNIQUE'" -%}
     {%- set res2 = run_query(check_const_sql) -%}
-    {%- set const_exists = false -%}
-    {%- if res2 -%}
-      {%- set const_exists = true -%}
-    {%- endif -%}
-
-    {%- if not const_exists -%}
+    {% if res2 is not none and res2.rows | length == 0 %}
       {%- set add_const = "alter table " ~ this ~ " add constraint " ~ constraint_name ~ " unique(" ~ adapter.quote(col_name) ~ ")" -%}
       {% do run_query(add_const) %}
     {%- else -%}
